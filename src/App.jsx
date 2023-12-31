@@ -30,9 +30,11 @@ function App() {
       }
     };
 
-    const intervalId = setInterval(fetchData, 180000); // fetch data every 3 minutes
+     // Fetch data immediately on component mount, then set interval
+    fetchData();
+    const intervalId = setInterval(fetchData, 180000);
 
-    return () => clearInterval(intervalId); // cleanup function to clear the interval
+    return () => clearInterval(intervalId);
   }, []);
 
 
