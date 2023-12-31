@@ -18,6 +18,24 @@ function App() {
     palette: { mode: 'dark' }
   })
 
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://trello-backend-v1.onrender.com');
+        const data = await response.json();
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    };
+
+    const intervalId = setInterval(fetchData, 180000); // fetch data every 3 minutes
+
+    return () => clearInterval(intervalId); // cleanup function to clear the interval
+  }, []);
+
+
   return (
     <ThemeProvider theme={theme}>
       <CssBaseLine />
