@@ -32,7 +32,7 @@ function App() {
 
      // Fetch data immediately on component mount, then set interval
     fetchData();
-    const intervalId = setInterval(fetchData, 180000);
+    const intervalId = setInterval(fetchData, 90000);
 
     return () => clearInterval(intervalId);
   }, []);
